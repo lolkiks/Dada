@@ -11,7 +11,7 @@ local CROSS_SLASH = "Cross Slash"
 
 local energy = 0
 local lastTargetName = nil
-local waitingForTurnResult = false
+local actionSentForCurrentTurn = false
 
 local function getWeakestEnemy()
     local weakestEnemy
@@ -28,6 +28,25 @@ local function getWeakestEnemy()
     return weakestEnemy
 end
 
+local function getBattleButtonsVisible()
+    local playerGui = player:FindFirstChildOfClass("PlayerGui")
+    if not playerGui then
+        return false
+    end
+
+    local battleGui = playerGui:FindFirstChild("BattleGui")
+    if not battleGui or not battleGui.Enabled then
+        return false
+    end
+
+    local buttons = battleGui:FindFirstChild("Buttons")
+    if not buttons then
+        return false
+    end
+
+    return buttons.Visible
+end
+
 local function focus()
     turnDecision:FireServer("Focus")
     energy += 1
@@ -40,19 +59,13 @@ local function castAbility(target, abilityName)
     print(string.format("[AUTO] %s -> %s", abilityName, target.Name))
 end
 
-local function doTurn()
-    if waitingForTurnResult then
-        return
-    end
-
+local function performAction()
     local target = getWeakestEnemy()
     if not target then
         energy = 0
         lastTargetName = nil
         return
     end
-
-    waitingForTurnResult = true
 
     if lastTargetName == target.Name then
         castAbility(target, STRIKE)
@@ -68,94 +81,19 @@ local function doTurn()
     end
 end
 
-local function extractTurnOwnerName(payload)
-    local payloadType = typeof(payload)
-
-    if payloadType == "string" then
-        return payload
-    end
-
-    if payloadType == "Instance" then
-        if payload:IsA("Player") then
-            return payload.Name
-        end
-        return payload.Name
-    end
-
-    if payloadType == "table" then
-        local candidates = {
-            payload.CurrentTurn,
-            payload.currentTurn,
-            payload.Turn,
-            payload.turn,
-            payload.Player,
-            payload.player,
-            payload.Owner,
-            payload.owner,
-            payload.Name,
-            payload.name,
-            payload[1],
-        }
-
-        for _, candidate in ipairs(candidates) do
-            local name = extractTurnOwnerName(candidate)
-            if name then
-                return name
-            end
-        end
-    end
-
-    return nil
-end
-
-local function unlockAndTryTurn(reason)
-    waitingForTurnResult = false
-    print("[AUTO] unlock:", reason)
-    doTurn()
-end
-
-local function onTurnSignal(payload, sourceName)
-    if payload == true then
-        unlockAndTryTurn(sourceName .. ":true")
-        return
-    end
-
-    local ownerName = extractTurnOwnerName(payload)
-    if ownerName and ownerName == player.Name then
-        unlockAndTryTurn(sourceName .. ":" .. ownerName)
-    end
-end
-
-local function connectRemoteSignal(remoteName)
-    local remote = remotes:FindFirstChild(remoteName)
-    if not remote or not remote:IsA("RemoteEvent") then
-        return
-    end
-
-    remote.OnClientEvent:Connect(function(payload)
-        onTurnSignal(payload, remoteName)
-    end)
-end
-
-connectRemoteSignal("UpdateTurn")
-connectRemoteSignal("TurnEvent")
-connectRemoteSignal("TurnTracker")
-connectRemoteSignal("FireTurn")
-
--- Fallback без тайминга атаки: если видим, что ход снова доступен в UI, снимаем lock.
+-- Главный цикл: действие только когда UI реально разрешает ход.
 task.spawn(function()
-    while task.wait(0.15) do
-        if waitingForTurnResult then
-            local playerGui = player:FindFirstChildOfClass("PlayerGui")
-            local battleGui = playerGui and playerGui:FindFirstChild("BattleGui")
-            local buttonFrame = battleGui and battleGui:FindFirstChild("Buttons")
+    while task.wait(0.1) do
+        local buttonsVisible = getBattleButtonsVisible()
 
-            if battleGui and battleGui.Enabled and buttonFrame and buttonFrame.Visible then
-                unlockAndTryTurn("battle_gui_ready")
-            end
+        if buttonsVisible and not actionSentForCurrentTurn then
+            actionSentForCurrentTurn = true
+            performAction()
+        elseif not buttonsVisible and actionSentForCurrentTurn then
+            -- Новый ход будет, когда кнопки снова появятся.
+            actionSentForCurrentTurn = false
         end
     end
 end)
 
-task.wait(1)
-doTurn()
+print("[AUTO] warrior_auto.lua started")

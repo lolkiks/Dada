@@ -673,32 +673,6 @@
 
 
 Locations/events
-An Average Campaign Wiki
-6
-
-
-Home
-Saved
-Progress
-History
-Browse Wikis
-Community Central
-Switch to Light Theme
-An Average Campaign Wiki
-
-
-Featured
-Interactive Maps
-Discuss
-Comment
-
-Wiki Menu
-
-Explore
-
-Wiki Content
-
-Community
 
 Contents
 1.
@@ -744,7 +718,7 @@ Mystic River
 3.4.1.
 Disregard the river entirely
 3.4.2.
-Decide to take a break at the river
+Decito take a break at the river
 3.4.2.1.
 Go for a swim in the river
 3.4.2.2.
@@ -1598,56 +1572,6 @@ The Den
 
 (the Other option asks why there are there and it leads to the Previous two choices.///
 
-More Information
-Comments (6)
-Join the conversation
-Sign in to read what others are saying and share your thoughts.
-SIGN IN
-Don't have account? Register now
-
-Categories
-Community content is available under CC-BY-SA unless otherwise noted.
-
-Just for You
-
-Popular Pages
-
-Fandom logo
-Explore properties
-Fandom
-Fanatical
-GameSpot
-Metacritic
-TV Guide
-Honest Entertainment
-Follow Us
-Overview
-What is Fandom?
-Essentials
-About
-Careers
-Press
-Contact
-Terms of Use
-Privacy Policy
-Digital Services Act
-Global Sitemap
-Local Sitemap
-Manage Preferences
-Community
-Community Central
-Support
-Help
-Advertise
-Media Kit
-Contact
-Fandom Apps
-Take your favorite fandoms with you and never miss a beat.
-Fandom App logo
-Store icon
-Store icon
-An Average Campaign Wiki is a Fandom Games Community.
-View Full Site
 
 
 
@@ -1670,34 +1594,9 @@ View Full Site
 
 
 Warrior
-An Average Campaign Wiki
 
 
 
-Home
-Saved
-Progress
-History
-Browse Wikis
-Community Central
-Switch to Light Theme
-An Average Campaign Wiki
-
-
-Featured
-Interactive Maps
-Discuss
-Comment
-
-Wiki Menu
-
-Explore
-
-Wiki Content
-
-Community
-
-An Average Campaign Wiki
 
 Explore
 Main Page
@@ -1750,13 +1649,11 @@ Rat Eye
 Leather Scrap
 Metal Scrap
 
-An Average Campaign Wiki
 
-Community
-Help
-Advertisement
 
-An Average Campaign Wiki
+
+
+
 
 
 Warrior
@@ -1939,57 +1836,323 @@ Increases your block chance by 1% per point invested.	HP
 Increases your HP by 2 per point invested.	Iron Defenses
 Increases block reduction by 1% per point invested.
 Stat Points
-Increases your starting stat points by 1 per point invested	
-Roblox: An Average Campaign Wiki - Classes
-Locations/Special Events	Items	Progression	Combat Mechanics
-Classes	Warrior(Knight/Rampager/Grudge Settler) - Ranger(Fey Wanderer/Gloom Stalker) - Rogue(Assassin/Drifter) - Mage(Bloodkin Warlock/Necromancer/Artificer) - Brawler(Elementalist/Beast/Aid Vat) - Priest(Druid/Zealot) - Bard(Bard of Valor/Bard of Whispers)
-More Information
-Comments (0)
-Start a conversation
-Sign in to share your thoughts and get the conversation going.
-SIGN IN
-Don't have account? Register now
+Increases your starting stat points by 1 per point invested
 
-Categories
-Community content is available under CC-BY-SA unless otherwise noted.
 
-Just for You
 
-Popular Pages
 
-Fandom logo
-Explore properties
-Fandom
-Fanatical
-GameSpot
-Metacritic
-TV Guide
-Honest Entertainment
-Follow Us
-Overview
-What is Fandom?
-Essentials
-About
-Careers
-Press
-Contact
-Terms of Use
-Privacy Policy
-Digital Services Act
-Global Sitemap
-Local Sitemap
-Manage Preferences
-Community
-Community Central
-Support
-Help
-Advertise
-Media Kit
-Contact
-Fandom Apps
-Take your favorite fandoms with you and never miss a beat.
-Fandom App logo
-Store icon
-Store icon
-An Average Campaign Wiki is a Fandom Games Community.
-View Full Site
+
+
+
+
+
+
+
+
+1.3
+
+
+
+
+
+
+
+
+
+
+
+Goblin
+Sign In to Save
+
+HP	Damage Type	Initative
+18	?, Small	7
+Dodge Chance
+Can Dodge
+Block Chance
+Can Block
+Drops
+Goblin Ear
+
+Gold:
+XP:
+Location
+Forest - Normal Encounters, Goblin Camp
+
+
+Description
+The goblin is a common enemy that can be found in the forest area. It can steal your money with it's Jugg move, and can Flee.
+
+
+Goblin
+Tiny Strike
+Damage: 4.5
+Damage Type: Physical
+Target Type: Single Enemy
+Energy Cost: 0
+Cooldown: 0
+(Insert Animation Here)
+Jugg
+Damage: 5
+Damage Type: Physical
+Target Type: Single Enemy
+Energy Cost: 2
+Cooldown: 4
+(Insert Animation Here)
+Flee
+Energy Cost: 0
+*Goblin removes themselves from the encounter. You do not get any rewards if a Goblin flees. This is more likely to occur if the Goblin is under 50% HP.	(Insert Animation Here
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Rat
+Sign In to Save
+
+HP	Damage Type	Initative
+5-8	Construct, Small	2-4
+Dodge Chance
+Can Dodge
+Block Chance
+Cannot Block
+Drops
+Rat Hide
+Rat Eye
+Gold: 3
+XP: 5
+Location
+Forest - Normal Encounters
+
+
+Rat
+Gnaw
+Damage: 2
+Damage Type: Physical
+Target Type: Single Enemy
+Energy Cost: 0
+Cooldown: 0
+(Insert Animation Here)
+Rat Flip
+Damage: 5
+Damage Type: Physical
+Target Type: Single Enemy
+Energy Cost: 2
+Cooldown: 4
+Effects: Vulnerable - 2
+(Insert Animation Here)
+
+
+
+
+
+
+
+
+
+
+
+Pebble
+Sign In to Save
+
+HP	Damage Type	Initative
+9-11	Construct	1-4
+Dodge Chance
+Cannot Dodge
+Block Chance
+Cannot Block
+Drops
+Rock Fragments
+Metal Scrap
+Spell Scroll: Summon Pebble
+Gold:
+XP:
+Location
+Forest - Normal Encounter
+
+
+Pebble
+Boulder Bump
+Damage: 3
+Damage Type: Physical
+Target Type: Single Enemy
+Energy Cost: 0
+Cooldown: 0
+(Insert Animation Here)
+
+
+
+
+
+
+
+
+
+
+Bandit
+Sign In to Save
+
+HP	Damage Type	Initative
+15	?	6
+Dodge Chance
+Can Dodge
+Block Chance
+Can Block
+Drops
+Leather Scrap
+Metal Scrap
+Cloth
+Gold:
+XP:
+Location
+Forest - Normal Encounters
+
+
+Bandit
+Quick Slash
+Damage: 3
+Damage Type: Physical
+Target Type: Single Enemy
+Energy Cost: 0
+Cooldown: 0
+(Insert Animation Here)
+Fire Bomb
+Damage: 5
+Damage Type: Fire
+Target Type: Single Enemy
+Energy Cost: 1
+Cooldown: ?
+Effects: Burn - 1
+(Insert Animation Here)
+Light Stab
+Damage:
+Damage Type: Physical
+Target Type: Single Enemy
+Energy Cost: 1
+Cooldown: 4?
+Effects: Bleed - 2
+(Insert Animation Here)
+
+
+
+
+
+
+
+
+
+
+
+
+Spider
+Sign In to Save
+
+HP	Damage Type	Initative
+16-18	Physical and Poison	3-4
+Dodge Chance
+?
+Block Chance
+Cannot block
+Drops
+Spider Silk
+Spider Eye
+Spell Scroll:Consuming Web
+Spell Scroll: Summon Spider
+Gold: 14-16
+EXP:13-17
+Location
+Forest
+
+
+Spider
+Spider Bite
+Damage: 4
+Damage Type: Physical Target Type: Single Enemy Energy Cost: 0 Cooldown: 0 Effects: Poison 1
+
+(Insert Animation Here)
+Web Attach
+Damage: 3.5 x 2
+Damage Type: Physical Target Type: Single Enemy Energy Cost: 2 Cooldown: ? Effects: Poison 2
+
+(Insert Animation Here)
+
+
+
+
+
+
+
+
+
+
+Bee
+Sign In to Save
+
+Drops
+Stinger
+Honey
+
+Location
+Forest
+The Bee is one of several enemies that you can encounter in the forest. When defeated, it will drop some gold, stingers, and honey.
+
+
+
+
+
+
+
+
+
+
+Pixie
+Sign In to Save
+
+HP	Damage Type	Initative
+15	? , Small	4
+Dodge Chance
+Cannot Dodge
+Block Chance
+Cannot Block
+Drops
+Pixie Dust
+Red Flower
+Gold:
+XP:
+Location
+Forest - Normal Encounters, Feyling
+
+
+Pixie
+Dust Bolt
+Damage: 2
+Damage Type: Psychic
+Target Type: Single Enemy
+Energy Cost: 0
+Cooldown: 0
+(Insert Animation Here)
+Wonderous Lights
+Damage: 5
+Damage Type: Physical
+Target Type: Single Enemy
+Energy Cost: 2
+Cooldown: 4
+Effects: Wonder - 3
+(Insert Animation Here)
+Magic Dust
+Healing: 6.9
+Target Type: Single Ally
+Energy Cost: 1
+Cooldown: 4
+*Only used if a party member is injured, regardless of HP missing.	(Insert Animation Here)

@@ -28,23 +28,22 @@ local function getWeakestEnemy()
     return weakestEnemy
 end
 
-local function getBattleButtonsVisible()
+local function hasTurnUIReady()
     local playerGui = player:FindFirstChildOfClass("PlayerGui")
     if not playerGui then
         return false
     end
 
-    local battleGui = playerGui:FindFirstChild("BattleGui")
-    if not battleGui or not battleGui.Enabled then
-        return false
+    for _, gui in ipairs(playerGui:GetDescendants()) do
+        if gui:IsA("GuiObject") and gui.Name == "Buttons" and gui.Visible then
+            local screen = gui:FindFirstAncestorWhichIsA("ScreenGui")
+            if screen and screen.Enabled then
+                return true
+            end
+        end
     end
 
-    local buttons = battleGui:FindFirstChild("Buttons")
-    if not buttons then
-        return false
-    end
-
-    return buttons.Visible
+    return false
 end
 
 local function focus()
@@ -81,17 +80,40 @@ local function performAction()
     end
 end
 
--- Главный цикл: действие только когда UI реально разрешает ход.
+local function tryAct(reason)
+    if actionSentForCurrentTurn then
+        return
+    end
+
+    if hasTurnUIReady() then
+        actionSentForCurrentTurn = true
+        print("[AUTO] Acting by", reason)
+        performAction()
+    end
+end
+
+local function connectTurnRemote(name)
+    local remote = remotes:FindFirstChild(name)
+    if remote and remote:IsA("RemoteEvent") then
+        remote.OnClientEvent:Connect(function()
+            actionSentForCurrentTurn = false
+            tryAct("remote:" .. name)
+        end)
+    end
+end
+
+connectTurnRemote("UpdateTurn")
+connectTurnRemote("TurnEvent")
+connectTurnRemote("TurnTracker")
+connectTurnRemote("FireTurn")
+
+-- fallback: если ход начался без remotes, увидим UI и нажмём один раз
 task.spawn(function()
     while task.wait(0.1) do
-        local buttonsVisible = getBattleButtonsVisible()
-
-        if buttonsVisible and not actionSentForCurrentTurn then
-            actionSentForCurrentTurn = true
-            performAction()
-        elseif not buttonsVisible and actionSentForCurrentTurn then
-            -- Новый ход будет, когда кнопки снова появятся.
+        if not hasTurnUIReady() then
             actionSentForCurrentTurn = false
+        else
+            tryAct("ui")
         end
     end
 end)
